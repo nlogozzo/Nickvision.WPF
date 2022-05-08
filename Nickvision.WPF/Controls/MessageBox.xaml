@@ -1,0 +1,30 @@
+﻿<mica:MicaWindow x:Class="Nickvision.WPF.Controls.MessageBox"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+                 xmlns:hc="https://handyorg.github.io/handycontrol"
+                 xmlns:local="clr-namespace:Nickvision.WPF.Controls"
+                 mc:Ignorable="d" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" 
+                 ResizeMode="NoResize" SystemBackdropType="Mica">
+    <DockPanel Margin="0,4,0,0">
+        <StackPanel DockPanel.Dock="Top" Margin="20,20,20,20" Orientation="Horizontal">
+            <TextBlock Name="LblIcon" FontFamily="Segoe Fluent Icons" FontSize="30" Text="&#xe783;"/>
+
+            <TextBlock Name="LblMsg" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14" Text="Message"/>
+        </StackPanel>
+
+        <hc:ButtonGroup DockPanel.Dock="Bottom">
+            <Button Name="BtnYes" Content="Yes" Click="BtnYes_Click"/>
+
+            <Button Name="BtnNo" Content="No" Click="BtnNo_Click"/>
+
+            <Button Name="BtnOK" Content="OK" Click="BtnOK_Click"/>
+
+            <Button Name="BtnCancel" Content="Cancel" Click="BtnCancel_Click"/>
+
+            <Button Name="BtnClose" Content="Close" Click="BtnClose_Click"/>
+        </hc:ButtonGroup>
+    </DockPanel>
+</mica:MicaWindow>

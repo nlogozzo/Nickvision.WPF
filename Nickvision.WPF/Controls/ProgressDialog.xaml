@@ -1,0 +1,20 @@
+﻿<mica:MicaWindow x:Class="Nickvision.WPF.Controls.ProgressDialog"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                 xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+                 xmlns:hc="https://handyorg.github.io/handycontrol"
+                 xmlns:local="clr-namespace:Nickvision.WPF.Controls"
+                 mc:Ignorable="d" Title="Please Wait" SizeToContent="WidthAndHeight" 
+                 WindowStartupLocation="CenterOwner" ResizeMode="NoResize" SystemBackdropType="Mica" 
+                 Loaded="Dialog_Loaded" Closing="Dialog_Closing">
+    <DockPanel Margin="0,4,0,0">
+        <StackPanel DockPanel.Dock="Top" Margin="20,20,20,20" Orientation="Horizontal">
+            <hc:LoadingCircle/>
+
+            <TextBlock Name="LblDescription" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="14" Text="Description"/>
+
+        </StackPanel>
+    </DockPanel>
+</mica:MicaWindow>
