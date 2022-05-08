@@ -11,10 +11,9 @@
                  Loaded="Dialog_Loaded" Closing="Dialog_Closing">
     <DockPanel Margin="0,4,0,0">
         <StackPanel DockPanel.Dock="Top" Margin="20,20,20,20" Orientation="Horizontal">
-            <hc:LoadingCircle/>
+            <hc:CircleProgressBar ArcThickness="10" IsIndeterminate="True"/>
 
             <TextBlock Name="LblDescription" VerticalAlignment="Center" Margin="20,0,0,0" FontSize="14" Text="Description"/>
-
         </StackPanel>
     </DockPanel>
 </mica:MicaWindow>

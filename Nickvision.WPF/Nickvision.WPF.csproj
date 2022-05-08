@@ -6,13 +6,13 @@
 	<LangVersion>10</LangVersion>
     <UseWPF>true</UseWPF>
     <Description>A framework for creating Nickvision applications with WPF.</Description>
-    <PackageReleaseNotes>- Removed animations from InfoBar (Needs more testing)</PackageReleaseNotes>
+    <PackageReleaseNotes>- Updated ProgressDialog design</PackageReleaseNotes>
     <Copyright>(C) Nickvision 2021-2022</Copyright>
     <PackageIcon>Nickvision Logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/nlogozzo/Nickvision.WPF</RepositoryUrl>
     <PackageProjectUrl>https://github.com/nlogozzo/Nickvision.WPF</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2022.5.3.1</Version>
+    <Version>2022.5.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
