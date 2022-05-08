@@ -4,24 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Nickvision.WPF.Controls"
-             mc:Ignorable="d" Name="Border" Height="50" CornerRadius="6"
-             Visibility="Collapsed" Opacity="0" Loaded="InfoBar_Loaded">
-    <Border.Resources>
-        <Style TargetType="Border">
-            <Style.Triggers>
-                <Trigger Property="Visibility" Value="Visible">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:0.2"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Border.Resources>
-
+             mc:Ignorable="d" Name="Border" Height="50" CornerRadius="6" Loaded="InfoBar_Loaded">
     <DockPanel Margin="10,6,10,6" LastChildFill="False">
         <TextBlock Name="LblIcon" DockPanel.Dock="Left" VerticalAlignment="Center" FontFamily="Segoe Fluent Icons" FontSize="24" Text="&#xe783;"/>
 
@@ -29,21 +12,6 @@
 
         <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10,0,0,0" Text="{Binding Message}"/>
 
-        <Button Name="BtnClose" DockPanel.Dock="Right" VerticalAlignment="Center" BorderThickness="0" 
-                FontFamily="Segoe Fluent Icons" Content="&#xe711;">
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="Clicked">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.2"/>
-
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Visibility">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Button.Triggers>
-        </Button>
+        <Button Name="BtnClose" DockPanel.Dock="Right" VerticalAlignment="Center" BorderThickness="0" FontFamily="Segoe Fluent Icons" Content="&#xe711;" Click="BtnClose_Click"/>
     </DockPanel>
 </Border>
