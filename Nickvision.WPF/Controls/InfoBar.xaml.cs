@@ -134,11 +134,4 @@ public partial class InfoBar : Border
         };
         BtnClose.Visibility = CanClose ? Visibility.Visible : Visibility.Collapsed;
     }
-
-    /// <summary>
-    /// Occurs when the Close button is clicked.
-    /// </summary>
-    /// <param name="sender">Unused.</param>
-    /// <param name="e">Unused.</param>
-    private void BtnClose_Click(object sender, RoutedEventArgs e) => Visibility = Visibility.Collapsed;
 }
