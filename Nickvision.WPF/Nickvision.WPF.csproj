@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
 	<LangVersion>10</LangVersion>
     <UseWPF>true</UseWPF>
-    <Description>A template for creating Nickviison applications with WPF.</Description>
+    <Description>A framework for creating Nickvision applications with WPF.</Description>
     <PackageReleaseNotes>- Initial Release</PackageReleaseNotes>
     <Copyright>(C) Nickvision 2021-2022</Copyright>
     <PackageIcon>Nickvision Logo.png</PackageIcon>
