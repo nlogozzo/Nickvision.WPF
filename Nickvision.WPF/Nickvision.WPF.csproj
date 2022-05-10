@@ -6,15 +6,13 @@
 	<LangVersion>10</LangVersion>
     <UseWPF>true</UseWPF>
     <Description>A framework for creating Nickvision applications with WPF.</Description>
-    <PackageReleaseNotes>- Added NavigationBar and NavigationBarItem controls
-- Added Copyright property to AppInfo
-- Updated ProgressDialog design</PackageReleaseNotes>
+    <PackageReleaseNotes>- Updated NavigationBarItem design</PackageReleaseNotes>
     <Copyright>(C) Nickvision 2021-2022</Copyright>
     <PackageIcon>Nickvision Logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/nlogozzo/Nickvision.WPF</RepositoryUrl>
     <PackageProjectUrl>https://github.com/nlogozzo/Nickvision.WPF</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2022.5.5</Version>
+    <Version>2022.5.5.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

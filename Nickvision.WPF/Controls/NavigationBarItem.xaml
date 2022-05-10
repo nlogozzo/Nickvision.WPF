@@ -39,7 +39,7 @@
                     <Trigger.Setters>
                         <Setter Property="Content">
                             <Setter.Value>
-                                <TextBlock FontFamily="Segoe Fluent Icons" FontSize="18" Text="{Binding FilledIcon}"/>
+                                <TextBlock FontFamily="Segoe Fluent Icons" FontSize="22" Text="{Binding FilledIcon}"/>
                             </Setter.Value>
                         </Setter>
                     </Trigger.Setters>
