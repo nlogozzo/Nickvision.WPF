@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Nickvision.WPF.Controls.NavigationBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mica="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:local="clr-namespace:Nickvision.WPF.Controls"
+             mc:Ignorable="d" Name="NavBar" Width="82" Loaded="NavigationBar_Loaded">
+    <DockPanel LastChildFill="False">
+        <ListBox Name="ListTopItems" DockPanel.Dock="Top" BorderThickness="0" Style="{StaticResource ListBoxTransparentStyle}"
+                 SelectionMode="Single" ItemsSource="{Binding TopItems, ElementName=NavBar}" SelectionChanged="NavigationBar_SelectionChanged"/>
+
+        <ListBox Name="ListBottomItems" DockPanel.Dock="Bottom" BorderThickness="0" Style="{StaticResource ListBoxTransparentStyle}" 
+                 SelectionMode="Single" ItemsSource="{Binding BottomItems, ElementName=NavBar}" SelectionChanged="NavigationBar_SelectionChanged"/>
+    </DockPanel>
+</UserControl>

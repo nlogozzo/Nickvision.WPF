@@ -23,6 +23,10 @@ public class AppInfo
     /// The changelog of the running version app.
     /// </summary>
     public string Changelog { get; set; }
+    /// <summary>
+    /// The copyright of the app.
+    /// </summary>
+    public string Copyright { get; set; }
 
     /// <summary>
     /// Constructs a new AppInfo.
@@ -31,11 +35,13 @@ public class AppInfo
     /// <param name="description">The description of the app</param>
     /// <param name="version">The version of the app</param>
     /// <param name="changelog">The changelog of the running version app</param>
-    public AppInfo(string name = "", string description = "", Version? version = null, string changelog = "")
+    /// <param name="copyright">The copyright of the app</param>
+    public AppInfo(string name = "", string description = "", Version? version = null, string changelog = "", string copyright = "")
     {
         Name = name;
         Description = description;
         Version = version ?? new Version(0, 0, 0);
         Changelog = changelog;
+        Copyright = copyright;
     }
 }

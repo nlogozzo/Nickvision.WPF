@@ -21,10 +21,10 @@ public enum InfoBarSeverity
 /// </summary>
 public partial class InfoBar : Border
 {
-    public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(InfoBar), new PropertyMetadata(null));
-    public static readonly DependencyProperty MessageProperty = DependencyProperty.Register("Message", typeof(string), typeof(InfoBar), new PropertyMetadata(null));
-    public static readonly DependencyProperty SeverityProperty = DependencyProperty.Register("Severity", typeof(InfoBarSeverity), typeof(InfoBar), new PropertyMetadata(null));
-    public static readonly DependencyProperty CanCloseProperty = DependencyProperty.Register("CanClose", typeof(bool), typeof(InfoBar), new PropertyMetadata(null));
+    public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(InfoBar), new FrameworkPropertyMetadata());
+    public static readonly DependencyProperty MessageProperty = DependencyProperty.Register("Message", typeof(string), typeof(InfoBar), new FrameworkPropertyMetadata());
+    public static readonly DependencyProperty SeverityProperty = DependencyProperty.Register("Severity", typeof(InfoBarSeverity), typeof(InfoBar), new FrameworkPropertyMetadata() { PropertyChangedCallback = OnSeverityChanged });
+    public static readonly DependencyProperty CanCloseProperty = DependencyProperty.Register("CanClose", typeof(bool), typeof(InfoBar), new FrameworkPropertyMetadata() { DefaultValue = true, PropertyChangedCallback = OnCanCloseChanged });
 
     /// <summary>
     /// Constructs an InfoBar.
@@ -32,7 +32,6 @@ public partial class InfoBar : Border
     public InfoBar()
     {
         InitializeComponent();
-        DataContext = this;
     }
 
     /// <summary>
@@ -62,26 +61,7 @@ public partial class InfoBar : Border
     {
         get => (InfoBarSeverity)GetValue(SeverityProperty);
 
-        set
-        {
-            SetValue(SeverityProperty, value);
-            Background = Severity switch
-            {
-                InfoBarSeverity.Information => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-                InfoBarSeverity.Warning => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
-                InfoBarSeverity.Error => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
-                InfoBarSeverity.Success => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
-                _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-            };
-            LblIcon.Text = Severity switch
-            {
-                InfoBarSeverity.Information => "\xe783",
-                InfoBarSeverity.Warning => "\xe7ba",
-                InfoBarSeverity.Error => "\xea39",
-                InfoBarSeverity.Success => "\xe930",
-                _ => "\xe783"
-            };
-        }
+        set => SetValue(SeverityProperty, value);
     }
 
     /// <summary>
@@ -91,11 +71,44 @@ public partial class InfoBar : Border
     {
         get => (bool)GetValue(CanCloseProperty);
 
-        set
+        set => SetValue(CanCloseProperty, value);
+    }
+
+    /// <summary>
+    /// Occurs when the Severity property is changed.
+    /// </summary>
+    /// <param name="sender">InfoBar</param>
+    /// <param name="e">Unused.</param>
+    public static void OnSeverityChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+    {
+        var infobar = (sender as InfoBar)!;
+        infobar.Background = infobar.Severity switch
         {
-            SetValue(CanCloseProperty, value);
-            BtnClose.Visibility = CanClose ? Visibility.Visible : Visibility.Collapsed;
-        }
+            InfoBarSeverity.Information => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+            InfoBarSeverity.Warning => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
+            InfoBarSeverity.Error => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
+            InfoBarSeverity.Success => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
+            _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+        };
+        infobar.LblIcon.Text = infobar.Severity switch
+        {
+            InfoBarSeverity.Information => "\xe783",
+            InfoBarSeverity.Warning => "\xe7ba",
+            InfoBarSeverity.Error => "\xea39",
+            InfoBarSeverity.Success => "\xe930",
+            _ => "\xe783"
+        };
+    }
+
+    /// <summary>
+    /// Occurs when the CanClose property is changed.
+    /// </summary>
+    /// <param name="sender">InfoBar</param>
+    /// <param name="e">Unused.</param>
+    public static void OnCanCloseChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+    {
+        var infobar = (sender as InfoBar)!;
+        infobar.BtnClose.Visibility = infobar.CanClose ? Visibility.Visible : Visibility.Collapsed;
     }
 
     /// <summary>
@@ -116,23 +129,6 @@ public partial class InfoBar : Border
                 _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
             };
         };
-        Background = Severity switch
-        {
-            InfoBarSeverity.Information => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-            InfoBarSeverity.Warning => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
-            InfoBarSeverity.Error => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
-            InfoBarSeverity.Success => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
-            _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-        };
-        LblIcon.Text = Severity switch
-        {
-            InfoBarSeverity.Information => "\xe783",
-            InfoBarSeverity.Warning => "\xe7ba",
-            InfoBarSeverity.Error => "\xea39",
-            InfoBarSeverity.Success => "\xe930",
-            _ => "\xe783"
-        };
-        BtnClose.Visibility = CanClose ? Visibility.Visible : Visibility.Collapsed;
     }
 
     /// <summary>
