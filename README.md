@@ -4,7 +4,7 @@
 A framework for creating Nickvision applications with WPF
 
 # Features
-- Custom controls (`ProgressDialog`, `ComboBoxDialog`, `InfoBar`, `MessageBox`, and more)
+- Custom controls (`ProgressDialog`, `NavigationBar`, `InfoBar`, `MessageBox`, and more)
 - An update framework to keep track and notify users of new application versions and changes
   - Allows for automatically downloading and install the update from within an app
 - Extensions methods to make working with WPF and other objects easier (`EnumExtensions`, `HttpClientExtensions`, and more)
