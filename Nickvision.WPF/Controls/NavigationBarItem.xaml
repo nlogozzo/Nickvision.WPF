@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Nickvision.WPF.Controls"
              mc:Ignorable="d" Width="70" Height="60" HorizontalContentAlignment="Center">
     <ListBoxItem.Style>
-        <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListBoxItemBaseTransparent}">
+        <Style TargetType="{x:Type ListBoxItem}" BasedOn="{DynamicResource ListBoxItemBaseTransparent}">
             <Style.Triggers>
                 <MultiTrigger>
                     <MultiTrigger.Conditions>
@@ -16,9 +16,9 @@
                         <Condition Property="Selector.IsSelectionActive" Value="False"/>
                     </MultiTrigger.Conditions>
 
-                    <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                    <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
 
-                    <Setter Property="Foreground" Value="{StaticResource TextIconBrush}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
                 </MultiTrigger>
                 
                 <Trigger Property="IsSelected" Value="False">

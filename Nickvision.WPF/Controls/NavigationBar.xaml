@@ -8,10 +8,10 @@
              xmlns:local="clr-namespace:Nickvision.WPF.Controls"
              mc:Ignorable="d" Name="NavBar" Width="82" Loaded="NavigationBar_Loaded">
     <DockPanel LastChildFill="False">
-        <ListBox Name="ListTopItems" DockPanel.Dock="Top" BorderThickness="0" Style="{StaticResource ListBoxTransparentStyle}"
+        <ListBox Name="ListTopItems" DockPanel.Dock="Top" BorderThickness="0" Style="{DynamicResource ListBoxTransparentStyle}"
                  SelectionMode="Single" ItemsSource="{Binding TopItems, ElementName=NavBar}" SelectionChanged="NavigationBar_SelectionChanged"/>
 
-        <ListBox Name="ListBottomItems" DockPanel.Dock="Bottom" BorderThickness="0" Style="{StaticResource ListBoxTransparentStyle}" 
+        <ListBox Name="ListBottomItems" DockPanel.Dock="Bottom" BorderThickness="0" Style="{DynamicResource ListBoxTransparentStyle}" 
                  SelectionMode="Single" ItemsSource="{Binding BottomItems, ElementName=NavBar}" SelectionChanged="NavigationBar_SelectionChanged"/>
     </DockPanel>
 </UserControl>
