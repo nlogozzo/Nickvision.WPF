@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Nickvision.WPF.Controls"
              mc:Ignorable="d" Width="70" Height="60" HorizontalContentAlignment="Center">
     <ListBoxItem.Style>
-        <Style TargetType="{x:Type ListBoxItem}" BasedOn="{DynamicResource ListBoxItemBaseTransparent}">
+        <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource ListBoxItemBaseTransparent}">
             <Style.Triggers>
                 <MultiTrigger>
                     <MultiTrigger.Conditions>

@@ -84,11 +84,11 @@ public partial class InfoBar : Border
         var infobar = (sender as InfoBar)!;
         infobar.Background = infobar.Severity switch
         {
-            InfoBarSeverity.Information => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-            InfoBarSeverity.Warning => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
-            InfoBarSeverity.Error => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
-            InfoBarSeverity.Success => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
-            _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+            InfoBarSeverity.Information => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+            InfoBarSeverity.Warning => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
+            InfoBarSeverity.Error => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
+            InfoBarSeverity.Success => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
+            _ => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
         };
         infobar.LblIcon.Text = infobar.Severity switch
         {
@@ -122,11 +122,11 @@ public partial class InfoBar : Border
         {
             Background = Severity switch
             {
-                InfoBarSeverity.Information => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
-                InfoBarSeverity.Warning => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
-                InfoBarSeverity.Error => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
-                InfoBarSeverity.Success => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
-                _ => ThemeManager.Current.ApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+                InfoBarSeverity.Information => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
+                InfoBarSeverity.Warning => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(255, 244, 206)) : new SolidColorBrush(Color.FromRgb(67, 53, 25)),
+                InfoBarSeverity.Error => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(253, 231, 233)) : new SolidColorBrush(Color.FromRgb(68, 39, 38)),
+                InfoBarSeverity.Success => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(223, 246, 221)) : new SolidColorBrush(Color.FromRgb(57, 61, 27)),
+                _ => ThemeManager.Current.ActualApplicationTheme == ApplicationTheme.Light ? new SolidColorBrush(Color.FromRgb(76, 194, 255)) : new SolidColorBrush(Color.FromRgb(0, 120, 212)),
             };
         };
     }
