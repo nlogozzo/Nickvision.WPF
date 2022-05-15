@@ -15,6 +15,8 @@ public class ThemeService : IThemeService
     /// <param name="theme">The theme</param>
     public void ChangeTheme(Theme theme)
     {
+        MicaWPF.Services.ThemeService.GetCurrent().IsThemeAware = false;
+        ThemeManager.Current.UsingSystemTheme = false;
         MicaWPF.Services.ThemeService.GetCurrent().ChangeTheme(theme switch
         {
             Theme.Light => WindowsTheme.Light,
@@ -22,7 +24,6 @@ public class ThemeService : IThemeService
             Theme.System => WindowsTheme.Auto,
             _ => WindowsTheme.Auto
         });
-        ThemeManager.Current.UsingSystemTheme = false;
         ThemeManager.Current.ApplicationTheme = theme switch
         {
             Theme.Light => ApplicationTheme.Light,
@@ -32,6 +33,7 @@ public class ThemeService : IThemeService
         };
         if(theme == Theme.System)
         {
+            MicaWPF.Services.ThemeService.GetCurrent().IsThemeAware = true;
             ThemeManager.Current.UsingSystemTheme = true;
         }
     }
