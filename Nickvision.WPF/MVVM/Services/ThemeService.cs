@@ -27,8 +27,12 @@ public class ThemeService : IThemeService
             Theme.Light => ApplicationTheme.Light,
             Theme.Dark => ApplicationTheme.Dark,
             Theme.System => null,
-            _ => null
+            _ => ApplicationTheme.Dark
         };
+        if(theme == Theme.System)
+        {
+            ThemeManager.Current.UsingSystemTheme = true;
+        }
     }
 
     /// <summary>
@@ -39,7 +43,7 @@ public class ThemeService : IThemeService
     {
         ThemeManager.Current.AccentColor = accentColor switch
         {
-            AccentColor.System => null,
+            AccentColor.System => ThemeManager.Current.GetAccentColorFromSystem(),
             AccentColor.Red => Brushes.Red,
             AccentColor.Orange => Brushes.Orange,
             AccentColor.Yellow => Brushes.Yellow,
@@ -50,7 +54,7 @@ public class ThemeService : IThemeService
             AccentColor.Brown => Brushes.SaddleBrown,
             AccentColor.Black => Brushes.Black,
             AccentColor.White => Brushes.White,
-            _ => null
+            _ => ThemeManager.Current.GetAccentColorFromSystem()
         };
     }
 }
