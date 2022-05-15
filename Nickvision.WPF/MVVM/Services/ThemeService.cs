@@ -22,6 +22,7 @@ public class ThemeService : IThemeService
             Theme.System => WindowsTheme.Auto,
             _ => WindowsTheme.Auto
         });
+        ThemeManager.Current.UsingSystemTheme = false;
         ThemeManager.Current.ApplicationTheme = theme switch
         {
             Theme.Light => ApplicationTheme.Light,
