@@ -6,13 +6,13 @@
 	<LangVersion>10</LangVersion>
     <UseWPF>true</UseWPF>
     <Description>A framework for creating Nickvision applications with WPF.</Description>
-    <PackageReleaseNotes>- Theme fixes</PackageReleaseNotes>
+    <PackageReleaseNotes>- Updated dependencies</PackageReleaseNotes>
     <Copyright>(C) Nickvision 2021-2022</Copyright>
     <PackageIcon>Nickvision Logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/nlogozzo/Nickvision.WPF</RepositoryUrl>
     <PackageProjectUrl>https://github.com/nlogozzo/Nickvision.WPF</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2022.5.7.1</Version>
+    <Version>2022.5.7.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.3.11" />
-    <PackageReference Include="MicaWPF" Version="3.1.15" />
+    <PackageReference Include="MicaWPF" Version="3.1.25" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
   </ItemGroup>
 
