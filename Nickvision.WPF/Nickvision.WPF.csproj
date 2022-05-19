@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/nlogozzo/Nickvision.WPF</RepositoryUrl>
     <PackageProjectUrl>https://github.com/nlogozzo/Nickvision.WPF</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2022.5.7.2</Version>
+    <Version>2022.5.7.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="HandyControls" Version="3.3.11" />
-    <PackageReference Include="MicaWPF" Version="3.1.25" />
+    <PackageReference Include="MicaWPF" Version="3.1.27" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
   </ItemGroup>
 
